@@ -1227,43 +1227,36 @@ p{color:var(--ink-2)}
   transition:all var(--dur-2) var(--ease);
 }
 .char-card:hover{transform:translateY(-4px) rotate(-.5deg);border-color:var(--glass-border-strong)}
-.char-portrait{
+.char-img{
   position:absolute; inset:0;
-  display:grid;place-items:center;
-  font-size:60px;
-  background:radial-gradient(circle at 50% 35%,rgba(255,94,26,.28),transparent 60%);
+  width:100%; height:100%;
+  object-fit:cover;
+  display:block;
+  transition:transform var(--dur-3) var(--ease), filter var(--dur-3) var(--ease);
+  filter:saturate(1.02) contrast(1.02);
 }
-.char-portrait::before{
-  content:""; position:absolute; top:24%; left:50%;
-  transform:translateX(-50%);
-  width:46%; aspect-ratio:1; border-radius:50%;
-  background:radial-gradient(circle at 35% 30%,#ffd8c0 0%,#e8a08a 30%,#9d4e2a 70%,#3a1810 100%);
-  box-shadow:inset -10px -16px 28px rgba(0,0,0,.5), 0 12px 30px -6px rgba(0,0,0,.6);
+.char-card:hover .char-img{transform:scale(1.04)}
+.char-card::after{
+  content:""; position:absolute; inset:0;
+  background:linear-gradient(180deg,transparent 55%,rgba(5,4,4,.78) 100%);
+  pointer-events:none;
 }
-.char-portrait::after{
-  content:""; position:absolute; top:60%; left:50%;
-  transform:translateX(-50%);
-  width:62%; height:36%; border-radius:50% 50% 0 0/40% 40% 0 0;
-  background:linear-gradient(180deg,#ff5e1a 0%,#7a2308 100%);
-}
-.char-card--lifestyle .char-portrait::before{background:radial-gradient(circle at 35% 30%,#ffe0b8 0%,#d09a72 35%,#5e3a23 75%,#1a0e08 100%)}
-.char-card--lifestyle .char-portrait::after{background:linear-gradient(180deg,#ffaa55 0%,#7a4216 100%)}
-.char-card--product .char-portrait::before{background:radial-gradient(circle at 35% 30%,#ffd0a8 0%,#d0784a 30%,#7a2e10 70%,#1a0808 100%)}
-.char-card--product .char-portrait::after{background:linear-gradient(180deg,#ff3a0e 0%,#5a1408 100%)}
-.char-card--campaign .char-portrait::before{background:radial-gradient(circle at 35% 30%,#fff0d0 0%,#f5c890 30%,#a87045 75%,#2a1810 100%)}
-.char-card--campaign .char-portrait::after{background:linear-gradient(180deg,#ffd6a3 0%,#a4581a 100%)}
 
 .char-card-meta{
   position:absolute; bottom:12px; left:12px; right:12px;
-  display:flex;justify-content:space-between;align-items:center;
-  padding:8px 12px;
-  background:rgba(0,0,0,.5);
-  backdrop-filter:blur(12px);
+  display:flex;justify-content:space-between;align-items:center;gap:10px;
+  padding:9px 12px;
+  background:rgba(0,0,0,.55);
+  backdrop-filter:blur(14px) saturate(140%);
+  -webkit-backdrop-filter:blur(14px) saturate(140%);
   border:1px solid rgba(255,255,255,.1);
   border-radius:10px;
-  font-size:11.5px;font-weight:600;color:#fff;letter-spacing:-.005em;
+  z-index:2;
 }
-.char-card-meta i{font-style:normal;font-size:9.5px;color:var(--ink-2);font-family:'JetBrains Mono',monospace;letter-spacing:.04em;text-transform:uppercase}
+.cm-text{display:flex;flex-direction:column;gap:1px;min-width:0}
+.cm-role{font-size:12px;font-weight:600;color:#fff;letter-spacing:-.005em;line-height:1.2}
+.cm-scene{font-size:10px;color:var(--ink-2);font-style:normal;font-weight:400;letter-spacing:-.005em;line-height:1.2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cm-ver{font-style:normal;font-size:9.5px;color:var(--ink-3);font-family:'JetBrains Mono',monospace;letter-spacing:.06em;text-transform:uppercase;flex-shrink:0}
 
 /* ═══════════════════════════════════════════════════════════
    15 · SECCIÓN 09 · CONTROL HUMANO
@@ -2194,7 +2187,7 @@ p{color:var(--ink-2)}
         </div>
         <div class="idea-body">
           <h3>Lanzamiento premium</h3>
-          <p>Producto en pedestal, luz dramática, transición a vida cotidiana. Cierre con tagline aspiracional.</p>
+          <p>Cava de roble, botella en pedestal y macro del vino en suspensión. Storytelling lento, luz cálida y silencio para marcas con peso.</p>
           <div class="idea-tags"><span>Cinematográfico</span><span>Hero</span><span>Aspiracional</span></div>
           <a href="#cta" class="idea-cta" data-waitlist>Unirme a la waitlist <svg class="ico ico-14"><use href="#i-arrow-right"/></svg></a>
         </div>
@@ -2206,9 +2199,9 @@ p{color:var(--ink-2)}
           <span class="duration">0:15</span>
         </div>
         <div class="idea-body">
-          <h3>UGC style ad</h3>
-          <p>Cámara en mano, talento real frente a cámara, fondo doméstico. Hook directo en los primeros tres segundos.</p>
-          <div class="idea-tags"><span>UGC</span><span>Performance</span><span>Conversión</span></div>
+          <h3>Drop cinematográfico</h3>
+          <p>Producto envuelto en humo y glow rojo, macro del midsole y cierre con typography animada del nombre de la línea.</p>
+          <div class="idea-tags"><span>Cinematográfico</span><span>Drop</span><span>Hype</span></div>
           <a href="#cta" class="idea-cta" data-waitlist>Unirme a la waitlist <svg class="ico ico-14"><use href="#i-arrow-right"/></svg></a>
         </div>
       </article>
@@ -2234,21 +2227,45 @@ p{color:var(--ink-2)}
         <a href="#cta" class="btn btn-outline-grad btn-sm" data-waitlist>Unirme a la waitlist <svg class="ico ico-14"><use href="#i-arrow-right"/></svg></a>
       </div>
       <div class="char-grid">
-        <article class="char-card char-card--frontal">
-          <div class="char-portrait" aria-hidden="true"></div>
-          <div class="char-card-meta"><span>Frontal</span><i>v.01</i></div>
+        <article class="char-card">
+          <img class="char-img" src="assets/char-frontal.webp" alt="Retrato editorial frontal del personaje, suéter terracota, fondo oscuro con luz cálida lateral" loading="lazy" decoding="async">
+          <div class="char-card-meta">
+            <div class="cm-text">
+              <span class="cm-role">Frontal</span>
+              <em class="cm-scene">Retrato estudio · luz cálida</em>
+            </div>
+            <i class="cm-ver">v.01</i>
+          </div>
         </article>
-        <article class="char-card char-card--lifestyle">
-          <div class="char-portrait" aria-hidden="true"></div>
-          <div class="char-card-meta"><span>Lifestyle</span><i>v.04</i></div>
+        <article class="char-card">
+          <img class="char-img" src="assets/char-lifestyle.webp" alt="Mismo personaje en café junto a ventana al atardecer, sosteniendo una taza" loading="lazy" decoding="async">
+          <div class="char-card-meta">
+            <div class="cm-text">
+              <span class="cm-role">Lifestyle</span>
+              <em class="cm-scene">Café · golden hour</em>
+            </div>
+            <i class="cm-ver">v.04</i>
+          </div>
         </article>
-        <article class="char-card char-card--product">
-          <div class="char-portrait" aria-hidden="true"></div>
-          <div class="char-card-meta"><span>Producto</span><i>v.02</i></div>
+        <article class="char-card">
+          <img class="char-img" src="assets/char-producto.webp" alt="Mismo personaje sosteniendo una botella de vino oscura, pieza editorial" loading="lazy" decoding="async">
+          <div class="char-card-meta">
+            <div class="cm-text">
+              <span class="cm-role">Producto</span>
+              <em class="cm-scene">Editorial con botella</em>
+            </div>
+            <i class="cm-ver">v.02</i>
+          </div>
         </article>
-        <article class="char-card char-card--campaign">
-          <div class="char-portrait" aria-hidden="true"></div>
-          <div class="char-card-meta"><span>Campaña</span><i>v.07</i></div>
+        <article class="char-card">
+          <img class="char-img" src="assets/char-campana.webp" alt="Mismo personaje en pasillo de concreto al atardecer con abrigo camel, cinematográfico" loading="lazy" decoding="async">
+          <div class="char-card-meta">
+            <div class="cm-text">
+              <span class="cm-role">Campaña</span>
+              <em class="cm-scene">Pasillo al atardecer</em>
+            </div>
+            <i class="cm-ver">v.07</i>
+          </div>
         </article>
       </div>
     </div>
