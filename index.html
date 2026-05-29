@@ -458,34 +458,34 @@ p{color:var(--ink-2)}
 .section--reel{padding-top:24px}
 .reel-grid{
   display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(258px,1fr));
-  gap:16px;
-  margin-top:4px;
+  grid-template-columns:repeat(auto-fill,minmax(380px,1fr));
+  gap:34px;
+  margin-top:10px;
 }
 .reel-tile{
-  position:relative;margin:0;
-  border-radius:16px;overflow:hidden;
+  margin:0;
+  transition:transform var(--dur-1);
+}
+.reel-tile:hover{transform:translateY(-5px)}
+.reel-media{
+  position:relative;
+  aspect-ratio:16/9;
+  border-radius:18px;overflow:hidden;
   border:1px solid var(--glass-border);
   background:var(--bg-1);
-  box-shadow:0 22px 44px -18px rgba(0,0,0,.55);
-  aspect-ratio:16/9;
-  transition:transform var(--dur-1),border-color var(--dur-1),box-shadow var(--dur-1);
+  box-shadow:0 26px 54px -18px rgba(0,0,0,.55);
+  transition:border-color var(--dur-1),box-shadow var(--dur-1);
 }
-.reel-tile:hover{
-  transform:translateY(-4px);
+.reel-tile:hover .reel-media{
   border-color:var(--glass-border-strong);
-  box-shadow:0 32px 64px -18px rgba(0,0,0,.6),0 0 52px -22px rgba(255,94,26,.4);
+  box-shadow:0 36px 74px -18px rgba(0,0,0,.6),0 0 58px -22px rgba(255,94,26,.42);
 }
 .reel-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
-.reel-label{
-  position:absolute;left:0;right:0;bottom:0;
-  padding:24px 12px 9px;
-  font-size:12px;font-weight:600;letter-spacing:-.005em;color:var(--ink-0);
-  background:linear-gradient(transparent,rgba(0,0,0,.72));
-}
-@media(max-width:560px){
-  .reel-grid{grid-template-columns:repeat(2,1fr);gap:10px}
-  .reel-label{font-size:11px;padding:20px 9px 7px}
+.reel-cap{padding:15px 4px 0}
+.reel-title{display:block;font-size:15.5px;font-weight:600;color:var(--ink-0);letter-spacing:-.01em}
+.reel-desc{display:block;font-size:13px;line-height:1.45;color:var(--ink-2);margin-top:4px}
+@media(max-width:640px){
+  .reel-grid{grid-template-columns:1fr;gap:26px}
 }
 .cockpit-glow{
   position:absolute;inset:-60px -10% -80px;
@@ -1707,15 +1707,38 @@ p{color:var(--ink-2)}
       <p>Cada uno nació de una idea o una marca. El agente armó la dirección, los frames clave y el video final.</p>
     </div>
     <div class="reel-grid reveal">
-      <figure class="reel-tile"><video class="reel-video" src="assets/idea-zapatilla.mp4" autoplay muted loop playsinline preload="metadata" aria-hidden="true"></video><figcaption class="reel-label">Drop deportivo</figcaption></figure>
-      <figure class="reel-tile"><video class="reel-video" src="assets/reel-inmueble.mp4" autoplay muted loop playsinline preload="metadata" aria-hidden="true"></video><figcaption class="reel-label">Inmobiliaria · dron</figcaption></figure>
-      <figure class="reel-tile"><video class="reel-video" src="assets/idea-vino.mp4" autoplay muted loop playsinline preload="metadata" aria-hidden="true"></video><figcaption class="reel-label">Lanzamiento premium</figcaption></figure>
-      <figure class="reel-tile"><video class="reel-video" src="assets/reel-joya.mp4" autoplay muted loop playsinline preload="metadata" aria-hidden="true"></video><figcaption class="reel-label">Joyería</figcaption></figure>
-      <figure class="reel-tile"><video class="reel-video" src="assets/reel-beach.mp4" autoplay muted loop playsinline preload="metadata" aria-hidden="true"></video><figcaption class="reel-label">Lifestyle</figcaption></figure>
-      <figure class="reel-tile"><video class="reel-video" src="assets/reel-can.mp4" autoplay muted loop playsinline preload="metadata" aria-hidden="true"></video><figcaption class="reel-label">Bebida · tu marca</figcaption></figure>
-      <figure class="reel-tile"><video class="reel-video" src="assets/reel-cocalo.mp4" autoplay muted loop playsinline preload="metadata" aria-hidden="true"></video><figcaption class="reel-label">Bebida · producto</figcaption></figure>
-      <figure class="reel-tile"><video class="reel-video" src="assets/reel-skincare.mp4" autoplay muted loop playsinline preload="metadata" aria-hidden="true"></video><figcaption class="reel-label">Skincare</figcaption></figure>
-      <figure class="reel-tile"><video class="reel-video" src="assets/reel-cerave.mp4" autoplay muted loop playsinline preload="metadata" aria-hidden="true"></video><figcaption class="reel-label">Cosmética · producto</figcaption></figure>
+      <figure class="reel-tile">
+        <div class="reel-media"><video class="reel-video" src="assets/idea-zapatilla.mp4" autoplay muted loop playsinline preload="metadata" aria-hidden="true"></video></div>
+        <figcaption class="reel-cap"><strong class="reel-title">Drop deportivo</strong><span class="reel-desc">Lanzamiento de zapatillas entre humo y glow rojo.</span></figcaption>
+      </figure>
+      <figure class="reel-tile">
+        <div class="reel-media"><video class="reel-video" src="assets/idea-vino.mp4" autoplay muted loop playsinline preload="metadata" aria-hidden="true"></video></div>
+        <figcaption class="reel-cap"><strong class="reel-title">Lanzamiento premium</strong><span class="reel-desc">Botella en pedestal, luz cálida y ritmo cinematográfico.</span></figcaption>
+      </figure>
+      <figure class="reel-tile">
+        <div class="reel-media"><video class="reel-video" src="assets/reel-joya.mp4" autoplay muted loop playsinline preload="metadata" aria-hidden="true"></video></div>
+        <figcaption class="reel-cap"><strong class="reel-title">Joyería</strong><span class="reel-desc">Macro de una pieza con brillo y fondo limpio.</span></figcaption>
+      </figure>
+      <figure class="reel-tile">
+        <div class="reel-media"><video class="reel-video" src="assets/reel-beach.mp4" autoplay muted loop playsinline preload="metadata" aria-hidden="true"></video></div>
+        <figcaption class="reel-cap"><strong class="reel-title">Lifestyle</strong><span class="reel-desc">Persona real en exteriores con luz natural.</span></figcaption>
+      </figure>
+      <figure class="reel-tile">
+        <div class="reel-media"><video class="reel-video" src="assets/reel-can.mp4" autoplay muted loop playsinline preload="metadata" aria-hidden="true"></video></div>
+        <figcaption class="reel-cap"><strong class="reel-title">Bebida · tu marca</strong><span class="reel-desc">Lata colorida sobre un fondo vibrante y enérgico.</span></figcaption>
+      </figure>
+      <figure class="reel-tile">
+        <div class="reel-media"><video class="reel-video" src="assets/reel-cocalo.mp4" autoplay muted loop playsinline preload="metadata" aria-hidden="true"></video></div>
+        <figcaption class="reel-cap"><strong class="reel-title">Bebida · producto</strong><span class="reel-desc">Producto con splash y frescura en cámara lenta.</span></figcaption>
+      </figure>
+      <figure class="reel-tile">
+        <div class="reel-media"><video class="reel-video" src="assets/reel-skincare.mp4" autoplay muted loop playsinline preload="metadata" aria-hidden="true"></video></div>
+        <figcaption class="reel-cap"><strong class="reel-title">Skincare</strong><span class="reel-desc">Textura del producto en close-up sobre la piel.</span></figcaption>
+      </figure>
+      <figure class="reel-tile">
+        <div class="reel-media"><video class="reel-video" src="assets/reel-cerave.mp4" autoplay muted loop playsinline preload="metadata" aria-hidden="true"></video></div>
+        <figcaption class="reel-cap"><strong class="reel-title">Cosmética · producto</strong><span class="reel-desc">Envase flotando entre gotas de hidratación.</span></figcaption>
+      </figure>
     </div>
   </div>
 </section>
