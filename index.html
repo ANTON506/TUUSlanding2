@@ -1303,153 +1303,6 @@ p{color:var(--ink-2)}
 .foot-bottom .made i{font-style:normal;color:var(--orange)}
 
 /* ═══════════════════════════════════════════════════════════
-   20b · WAITLIST MODAL
-   ═══════════════════════════════════════════════════════════ */
-.waitlist-modal{
-  position:fixed;inset:0;z-index:200;
-  display:none;
-  align-items:center;justify-content:center;
-  padding:24px;
-}
-.waitlist-modal.is-open{display:flex;animation:wl-fade-in .3s var(--ease)}
-.wl-backdrop{
-  position:absolute;inset:0;
-  background:rgba(5,4,4,.7);
-  backdrop-filter:blur(18px) saturate(140%);
-  -webkit-backdrop-filter:blur(18px) saturate(140%);
-  cursor:pointer;
-}
-.wl-card{
-  position:relative;
-  width:100%;max-width:480px;
-  background:linear-gradient(var(--bg-1),var(--bg-1)) padding-box, var(--grad-border) border-box;
-  border:1px solid transparent;
-  border-radius:24px;
-  padding:40px 36px 32px;
-  box-shadow:0 40px 120px -10px rgba(0,0,0,.7), 0 0 80px -10px rgba(255,94,26,.35), 0 1px 0 rgba(255,255,255,.08) inset;
-  animation:wl-pop-in .42s var(--ease);
-  max-height:calc(100vh - 48px);
-  overflow-y:auto;
-  isolation:isolate;
-}
-.wl-card::before{
-  content:"";position:absolute;inset:0;border-radius:inherit;
-  background:
-    radial-gradient(circle at 30% 0%,rgba(255,94,26,.14),transparent 55%),
-    radial-gradient(circle at 80% 100%,rgba(255,58,14,.10),transparent 60%);
-  pointer-events:none;z-index:-1;
-}
-.wl-close{
-  position:absolute;top:14px;right:14px;
-  width:34px;height:34px;
-  display:grid;place-items:center;
-  background:var(--glass-bg);
-  border:1px solid var(--glass-border);
-  border-radius:50%;
-  color:var(--ink-2);
-  font-size:20px;line-height:1;font-weight:300;
-  transition:all var(--dur-1) var(--ease);
-  z-index:2;
-}
-.wl-close:hover{color:var(--ink-0);background:var(--glass-bg-2);transform:scale(1.06)}
-.wl-card .eyebrow{margin-bottom:14px}
-.wl-card h2{
-  font-size:28px;
-  margin:0 0 10px;
-  letter-spacing:-.025em;
-  line-height:1.1;
-}
-.wl-card > p{
-  font-size:14.5px;
-  line-height:1.55;
-  color:var(--ink-2);
-  margin-bottom:26px;
-}
-.wl-form{display:flex;flex-direction:column;gap:14px}
-.wl-honeypot{position:absolute;left:-9999px;top:-9999px;width:1px;height:1px;overflow:hidden;opacity:0;pointer-events:none}
-.wl-field{display:flex;flex-direction:column;gap:6px}
-.wl-label{
-  font-size:10.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
-  color:var(--ink-3);
-}
-.wl-field input{
-  width:100%;
-  padding:13px 16px;
-  background:rgba(255,255,255,.025);
-  border:1px solid var(--glass-border);
-  border-radius:12px;
-  color:var(--ink-0);
-  font-size:14.5px;
-  letter-spacing:-.005em;
-  font-family:inherit;
-  transition:border-color var(--dur-1), background var(--dur-1), box-shadow var(--dur-1);
-}
-.wl-field input:hover{border-color:var(--glass-border-strong)}
-.wl-field input:focus{
-  outline:none;
-  border-color:rgba(255,94,26,.55);
-  background:rgba(255,255,255,.045);
-  box-shadow:0 0 0 4px rgba(255,94,26,.14);
-}
-.wl-field input::placeholder{color:var(--ink-3);font-weight:400}
-.wl-field input:invalid:not(:placeholder-shown){border-color:rgba(255,90,77,.45)}
-.wl-submit{
-  margin-top:10px;
-  width:100%;
-  justify-content:center;
-  position:relative;
-}
-.wl-submit:disabled{opacity:.7;cursor:wait}
-.wl-disclaimer{
-  font-size:11.5px;
-  color:var(--ink-3);
-  text-align:center;
-  margin-top:6px;
-  letter-spacing:-.005em;
-  line-height:1.5;
-}
-.wl-error{
-  display:none;
-  font-size:13px;
-  color:var(--error);
-  margin-top:4px;
-  padding:10px 12px;
-  background:rgba(255,90,77,.08);
-  border:1px solid rgba(255,90,77,.3);
-  border-radius:10px;
-}
-.wl-error.is-visible{display:block;animation:wl-fade-in .25s var(--ease)}
-.wl-success{
-  display:none;
-  text-align:center;
-  padding:14px 0 4px;
-}
-.wl-success.is-visible{display:block;animation:wl-fade-in .45s var(--ease)}
-.wl-success-icon{
-  width:64px;height:64px;
-  margin:0 auto 18px;
-  border-radius:50%;
-  background:linear-gradient(135deg,rgba(62,255,122,.2),rgba(62,255,122,.06));
-  border:1px solid rgba(62,255,122,.4);
-  display:grid;place-items:center;
-  color:var(--success);
-  box-shadow:0 0 32px -4px rgba(62,255,122,.4);
-}
-.wl-success-icon .ico{width:30px;height:30px;stroke-width:2.6}
-.wl-success h3{font-size:22px;margin-bottom:8px;letter-spacing:-.02em}
-.wl-success p{font-size:14.5px;line-height:1.55;color:var(--ink-2);margin-bottom:22px}
-.wl-success-meta{
-  font-size:11.5px;color:var(--ink-3);
-  letter-spacing:.04em;
-  font-family:'JetBrains Mono',monospace;
-}
-@media (max-width:540px){
-  .waitlist-modal{padding:14px}
-  .wl-card{padding:32px 22px 24px;border-radius:20px}
-  .wl-card h2{font-size:24px}
-}
-
-/* ═══════════════════════════════════════════════════════════
    21 · KEYFRAMES
    ═══════════════════════════════════════════════════════════ */
 @keyframes orbA{
@@ -1639,8 +1492,8 @@ p{color:var(--ink-2)}
     <a href="#precios">Precios</a>
     <a href="#faq">FAQ</a>
   </nav>
-  <a href="#cta" class="btn btn-ghost btn-sm nav-cta" data-waitlist>
-    Acceso temprano
+  <a href="https://app.tuus.app" class="btn btn-ghost btn-sm nav-cta">
+    Ir a la app
     <svg class="ico ico-14"><use href="#i-arrow-right"/></svg>
   </a>
 </header>
@@ -1664,8 +1517,8 @@ p{color:var(--ink-2)}
         Describe una idea, sube tu producto o conecta tu marca. Tuus.AI entiende el contexto, propone la dirección creativa, arma frames clave y deja tu video listo para generar.
       </p>
       <div class="hero-ctas reveal" style="transition-delay:240ms">
-        <a href="#cta" class="btn btn-primary btn-lg" data-waitlist>
-          Unirme a la waitlist
+        <a href="https://app.tuus.app" class="btn btn-primary btn-lg">
+          Empezar ahora
           <svg class="ico ico-16"><use href="#i-arrow-right"/></svg>
         </a>
         <a href="#como" class="btn btn-ghost btn-lg">
@@ -1940,7 +1793,7 @@ p{color:var(--ink-2)}
           <li><svg class="ico ico-16"><use href="#i-check"/></svg>Variantes para hero, lifestyle, producto y campaña</li>
           <li><svg class="ico ico-16"><use href="#i-check"/></svg>Expandibles a nuevos formatos sin re-entrenar</li>
         </ul>
-        <a href="#cta" class="btn btn-outline-grad btn-sm" data-waitlist>Unirme a la waitlist <svg class="ico ico-14"><use href="#i-arrow-right"/></svg></a>
+        <a href="https://app.tuus.app" class="btn btn-outline-grad btn-sm">Empezar ahora <svg class="ico ico-14"><use href="#i-arrow-right"/></svg></a>
       </div>
       <div class="char-grid">
         <article class="char-card">
@@ -2138,7 +1991,7 @@ p{color:var(--ink-2)}
           <li><svg class="ico"><use href="#i-check"/></svg>Frames clave ilimitados para revisar</li>
           <li><svg class="ico"><use href="#i-check"/></svg>Galería personal</li>
         </ul>
-        <a href="#cta" class="btn btn-ghost" data-waitlist>Unirme a la waitlist</a>
+        <a href="https://app.tuus.app" class="btn btn-ghost">Empezar ahora</a>
       </article>
       <article class="card price-card price-card--featured reveal" style="transition-delay:80ms">
         <span class="price-eyebrow">Studio</span>
@@ -2152,7 +2005,7 @@ p{color:var(--ink-2)}
           <li><svg class="ico"><use href="#i-check"/></svg>Brand Autopilot</li>
           <li><svg class="ico"><use href="#i-check"/></svg>Multi-formato automático</li>
         </ul>
-        <a href="#cta" class="btn btn-primary" data-waitlist>Unirme a la waitlist <svg class="ico ico-14"><use href="#i-arrow-right"/></svg></a>
+        <a href="https://app.tuus.app" class="btn btn-primary">Empezar ahora <svg class="ico ico-14"><use href="#i-arrow-right"/></svg></a>
       </article>
       <article class="card price-card reveal" style="transition-delay:160ms">
         <span class="price-eyebrow">Agency</span>
@@ -2166,7 +2019,7 @@ p{color:var(--ink-2)}
           <li><svg class="ico"><use href="#i-check"/></svg>Roles y permisos por equipo</li>
           <li><svg class="ico"><use href="#i-check"/></svg>Soporte dedicado</li>
         </ul>
-        <a href="#cta" class="btn btn-ghost" data-waitlist>Unirme a la waitlist</a>
+        <a href="https://app.tuus.app" class="btn btn-ghost">Empezar ahora</a>
       </article>
     </div>
   </div>
@@ -2224,11 +2077,11 @@ p{color:var(--ink-2)}
 <section class="section section--cta" id="cta">
   <div class="container">
     <div class="cta-block reveal-scale">
-      <span class="eyebrow"><span></span>Acceso temprano · Plazas limitadas</span>
-      <h2>Sé de los primeros en producir<br>con un agente creativo de verdad.</h2>
-      <p>Estamos abriendo el acceso por etapas. Únete a la waitlist y te avisamos cuando llegue tu turno.</p>
-      <a href="#" class="btn btn-primary btn-lg" data-waitlist>
-        Unirme a la waitlist
+      <span class="eyebrow"><span></span>Acceso abierto</span>
+      <h2>Tu primer video está<br>a un par de clics.</h2>
+      <p>Cuéntale tu idea al agente y deja que arme la dirección, los frames y el video final. Sin instalar nada.</p>
+      <a href="https://app.tuus.app" class="btn btn-primary btn-lg">
+        Empezar ahora
         <svg class="ico ico-16"><use href="#i-arrow-right"/></svg>
       </a>
     </div>
@@ -2236,53 +2089,6 @@ p{color:var(--ink-2)}
 </section>
 
 </main>
-
-<!-- ╔══════════════════════════════════════════════════════
-     WAITLIST MODAL
-     ╚══════════════════════════════════════════════════════ -->
-<div class="waitlist-modal" id="waitlistModal" role="dialog" aria-modal="true" aria-labelledby="waitlistTitle" aria-hidden="true">
-  <div class="wl-backdrop" data-close aria-hidden="true"></div>
-  <div class="wl-card">
-    <button type="button" class="wl-close" data-close aria-label="Cerrar">×</button>
-    <span class="eyebrow"><span></span>Acceso temprano</span>
-    <h2 id="waitlistTitle">Únete a la waitlist.</h2>
-    <p>Plazas limitadas para los primeros equipos en producir con Tuus.AI. Sin spam, te contactamos solo para el lanzamiento.</p>
-
-    <form class="wl-form" id="waitlistForm" novalidate>
-      <!-- Honeypot: invisible para humanos, los bots lo llenan -->
-      <div class="wl-honeypot" aria-hidden="true">
-        <label>Si eres humano, deja este campo vacío:
-          <input type="text" name="website" tabindex="-1" autocomplete="off">
-        </label>
-      </div>
-      <label class="wl-field">
-        <span class="wl-label">Nombre</span>
-        <input type="text" name="name" required minlength="2" autocomplete="name" placeholder="Tu nombre completo">
-      </label>
-      <label class="wl-field">
-        <span class="wl-label">Email</span>
-        <input type="email" name="email" required autocomplete="email" placeholder="tu@email.com">
-      </label>
-      <label class="wl-field">
-        <span class="wl-label">Teléfono</span>
-        <input type="tel" name="phone" required autocomplete="tel" placeholder="+56 9 1234 5678">
-      </label>
-      <div class="wl-error" id="waitlistError" role="alert"></div>
-      <button type="submit" class="btn btn-primary btn-lg wl-submit">
-        <span class="wl-submit-label">Unirme a la waitlist</span>
-        <svg class="ico ico-16"><use href="#i-arrow-right"/></svg>
-      </button>
-      <p class="wl-disclaimer">Al unirte aceptas que te contactemos sobre el lanzamiento.</p>
-    </form>
-
-    <div class="wl-success" id="waitlistSuccess" aria-live="polite">
-      <div class="wl-success-icon"><svg class="ico"><use href="#i-check"/></svg></div>
-      <h3>¡Estás en la waitlist!</h3>
-      <p>Te contactaremos cuando llegue tu turno.<br>Mientras tanto, sigue creando.</p>
-      <span class="wl-success-meta">// Tuus.AI · Acceso temprano</span>
-    </div>
-  </div>
-</div>
 
 <footer class="foot">
   <div class="container">
@@ -2394,157 +2200,6 @@ p{color:var(--ink-2)}
     }
   }
   window.addEventListener('scroll', onScroll, { passive: true });
-
-  /* ───────────────────────────────────────────────
-     WAITLIST MODAL + FORM SUBMISSION
-     ─────────────────────────────────────────────── */
-  /*
-    WAITLIST — endpoint configurado al Sheet:
-    https://docs.google.com/spreadsheets/d/1OLwzOPyhOoSQxQ6xeckuoVWV2ncDnyMhTt5rW4IjrnI
-
-    Capas anti-spam activas:
-      · Honeypot field "website" (bots lo rellenan, humanos no lo ven)
-      · Shared token validado en Apps Script
-      · Validación de campos obligatorios server-side
-  */
-  var WAITLIST_ENDPOINT = 'https://script.google.com/macros/s/AKfycbwsSojk0Xh0q3Q6nXMK9qysXbjMWwCQfJFbXiNnwEhGtp0H5r-FGCP01rprnvNxem4jog/exec';
-  var WAITLIST_TOKEN = 'tuus_wl_v1_8f3a2c7e9b1d6a4f5';
-  var WAITLIST_KEY = 'tuus_waitlist';
-
-  var wlModal = document.getElementById('waitlistModal');
-  var wlForm = document.getElementById('waitlistForm');
-  var wlSuccess = document.getElementById('waitlistSuccess');
-  var wlError = document.getElementById('waitlistError');
-  var wlPrevFocus = null;
-
-  function openWaitlist(){
-    if (!wlModal) return;
-    wlPrevFocus = document.activeElement;
-    wlModal.classList.add('is-open');
-    wlModal.setAttribute('aria-hidden','false');
-    document.body.style.overflow = 'hidden';
-    setTimeout(function(){
-      var first = wlForm && wlForm.querySelector('input');
-      if (first) first.focus();
-    }, 80);
-  }
-  function closeWaitlist(){
-    if (!wlModal) return;
-    wlModal.classList.remove('is-open');
-    wlModal.setAttribute('aria-hidden','true');
-    document.body.style.overflow = '';
-    if (wlPrevFocus && wlPrevFocus.focus) try{ wlPrevFocus.focus(); }catch(_){}
-  }
-
-  document.querySelectorAll('[data-waitlist]').forEach(function(btn){
-    btn.addEventListener('click', function(e){ e.preventDefault(); openWaitlist(); });
-  });
-  document.querySelectorAll('[data-close]').forEach(function(el){
-    el.addEventListener('click', closeWaitlist);
-  });
-  document.addEventListener('keydown', function(e){
-    if (e.key === 'Escape' && wlModal && wlModal.classList.contains('is-open')) closeWaitlist();
-  });
-
-  function showError(msg){
-    if (!wlError) return;
-    wlError.textContent = msg;
-    wlError.classList.add('is-visible');
-  }
-  function showSuccess(){
-    if (wlForm) wlForm.style.display = 'none';
-    if (wlSuccess) wlSuccess.classList.add('is-visible');
-  }
-
-  if (wlForm){
-    wlForm.addEventListener('submit', function(e){
-      e.preventDefault();
-      if (wlError) wlError.classList.remove('is-visible');
-
-      // HTML5 validation
-      if (!wlForm.checkValidity()){
-        wlForm.reportValidity();
-        return;
-      }
-
-      var fd = new FormData(wlForm);
-      var honeypot = (fd.get('website') || '').toString().trim();
-      var data = {
-        name: (fd.get('name') || '').toString().trim(),
-        email: (fd.get('email') || '').toString().trim(),
-        phone: (fd.get('phone') || '').toString().trim(),
-        website: honeypot,                 // honeypot — bots lo rellenan
-        token: WAITLIST_TOKEN,             // shared secret
-        timestamp: new Date().toISOString(),
-        source: 'tuus.ai-landing',
-        ref: document.referrer || '',
-        ua: navigator.userAgent.slice(0, 140)
-      };
-
-      // Si el honeypot tiene contenido, fingimos éxito y no enviamos nada (es un bot)
-      if (honeypot){
-        console.warn('[waitlist] honeypot caught — silently ignored');
-        setTimeout(showSuccess, 600);
-        return;
-      }
-
-      // 1. Save locally first (always works)
-      try {
-        var list = JSON.parse(localStorage.getItem(WAITLIST_KEY) || '[]');
-        list.push(data);
-        localStorage.setItem(WAITLIST_KEY, JSON.stringify(list));
-      } catch (_) {}
-
-      var btn = wlForm.querySelector('.wl-submit');
-      var label = btn && btn.querySelector('.wl-submit-label');
-      if (btn) btn.disabled = true;
-      if (label) label.textContent = 'Enviando…';
-
-      var isPlaceholder = WAITLIST_ENDPOINT.indexOf('YOUR_SCRIPT_ID') !== -1;
-      if (isPlaceholder){
-        console.warn('[waitlist] WAITLIST_ENDPOINT no configurado. Guardado solo en localStorage. Ver instrucciones en el script.');
-        setTimeout(showSuccess, 600);
-        return;
-      }
-
-      fetch(WAITLIST_ENDPOINT, {
-        method: 'POST',
-        mode: 'no-cors',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data)
-      })
-      .then(function(){ showSuccess(); })
-      .catch(function(err){
-        console.error('[waitlist]', err);
-        // localStorage ya guardó la entrada, igual mostramos éxito
-        showSuccess();
-      });
-    });
-  }
-
-  // Helper de consola para revisar/exportar las entradas locales
-  window.tuusWaitlist = {
-    list: function(){ return JSON.parse(localStorage.getItem(WAITLIST_KEY) || '[]'); },
-    count: function(){ return JSON.parse(localStorage.getItem(WAITLIST_KEY) || '[]').length; },
-    clear: function(){ localStorage.removeItem(WAITLIST_KEY); console.log('[waitlist] localStorage limpio'); },
-    download: function(){
-      var list = JSON.parse(localStorage.getItem(WAITLIST_KEY) || '[]');
-      if (!list.length){ console.log('[waitlist] sin entradas'); return; }
-      var headers = Object.keys(list[0]).join(',');
-      var rows = list.map(function(r){
-        return Object.values(r).map(function(v){
-          return '"' + String(v).replace(/"/g,'""') + '"';
-        }).join(',');
-      });
-      var csv = [headers].concat(rows).join('\n');
-      var blob = new Blob([csv], { type: 'text/csv;charset=utf-8' });
-      var url = URL.createObjectURL(blob);
-      var a = document.createElement('a');
-      a.href = url; a.download = 'tuus-waitlist-' + new Date().toISOString().slice(0,10) + '.csv';
-      document.body.appendChild(a); a.click(); document.body.removeChild(a);
-      URL.revokeObjectURL(url);
-    }
-  };
 
 })();
 </script>
