@@ -444,9 +444,15 @@ p{color:var(--ink-2)}
 /* Cockpit wrap */
 .cockpit-wrap{
   position:relative;
-  max-width:640px;
+  max-width:1040px;
   margin:0 auto;
   padding:0 8px;
+}
+.cockpit-shot{
+  display:block;
+  width:100%;
+  height:auto;
+  border-radius:12px;
 }
 .cockpit-glow{
   position:absolute;inset:-60px -10% -80px;
@@ -476,210 +482,6 @@ p{color:var(--ink-2)}
     radial-gradient(circle at 80% 0%,rgba(255,170,85,.05),transparent 55%),
     radial-gradient(circle at 50% 100%,rgba(255,58,14,.08),transparent 60%);
   pointer-events:none;
-}
-
-.cock-bar{
-  display:flex;align-items:center;gap:14px;
-  padding:10px 14px 12px;
-  border-bottom:1px solid var(--line);
-  position:relative;
-}
-.cock-dots{display:flex;gap:6px}
-.cock-dots span{width:11px;height:11px;border-radius:50%;background:#3a3f4d;display:block;box-shadow:0 1px 0 rgba(255,255,255,.05) inset, 0 1px 1px rgba(0,0,0,.3)}
-.cock-dots span:nth-child(1){background:#ff5a4d}
-.cock-dots span:nth-child(2){background:#ffaa55}
-.cock-dots span:nth-child(3){background:#3eff7a}
-.cock-crumb{
-  flex:1; display:flex;align-items:center;gap:8px;
-  font-size:12px; color:var(--ink-2); font-weight:500;
-  justify-content:center;
-}
-.cock-crumb .ico{width:12px;height:12px;color:var(--ink-3)}
-.cock-sep{color:var(--ink-3);font-size:11px}
-.cock-active{color:var(--ink-1);font-weight:600}
-.cock-actions{display:flex;gap:8px}
-.cock-action{
-  width:26px;height:26px;display:grid;place-items:center;
-  background:var(--glass-bg);border:1px solid var(--line);
-  border-radius:8px;color:var(--ink-2);
-  transition:all var(--dur-1);
-}
-.cock-action:hover{color:var(--ink-0);background:var(--glass-bg-2)}
-
-.cock-grid{
-  display:block;
-  padding:14px;
-}
-
-/* === COL 1 · CHAT === */
-.cock-chat{
-  background:var(--glass-bg-3);
-  border:1px solid var(--glass-border);
-  border-radius:18px;
-  display:flex;flex-direction:column;
-  position:relative;
-  min-height:560px;
-  overflow:hidden;
-}
-.cock-chat::before{
-  content:"";position:absolute;inset:-30%;
-  background:radial-gradient(circle at 20% 30%,rgba(255,94,26,.18),transparent 50%);
-  pointer-events:none;z-index:0;
-}
-.cock-chat > *{position:relative;z-index:1}
-
-.chat-head{
-  display:flex;align-items:center;gap:10px;
-  padding:14px 14px 12px;
-  border-bottom:1px solid var(--line);
-}
-.chat-avatar{position:relative;width:34px;height:34px}
-.chat-avatar .ava{
-  width:34px;height:34px;border-radius:10px;
-  background:linear-gradient(135deg,#1a0e08,#0a0606);
-  border:1px solid rgba(255,94,26,.4);
-  display:grid;place-items:center;
-  color:var(--orange);
-  box-shadow:0 8px 22px -6px rgba(255,94,26,.45), 0 0 0 1px rgba(255,94,26,.15) inset;
-}
-.chat-avatar .ava svg{width:20px;height:20px}
-.chat-avatar .dot-status{
-  position:absolute;bottom:-1px;right:-1px;
-  width:10px;height:10px;
-  border:2px solid var(--bg-1);
-}
-.chat-meta{display:flex;flex-direction:column;flex:1}
-.chat-meta strong{font-size:13.5px;color:var(--ink-0);font-weight:600;letter-spacing:-.005em}
-.chat-meta .chat-sub{font-size:11px;color:var(--ink-3);margin-top:1px}
-.chat-kebab{
-  width:28px;height:28px;border-radius:8px;
-  display:grid;place-items:center;color:var(--ink-3);
-  font-size:14px;letter-spacing:.05em;
-  background:transparent;
-  transition:all var(--dur-1);
-}
-.chat-kebab:hover{background:var(--glass-bg);color:var(--ink-1)}
-
-.chat-stream{
-  flex:1; padding:14px 12px;
-  display:flex;flex-direction:column;gap:14px;
-  overflow-y:auto;
-  scrollbar-width:thin;
-  scrollbar-color:rgba(255,255,255,.1) transparent;
-}
-.chat-stream::-webkit-scrollbar{width:4px}
-.chat-stream::-webkit-scrollbar-thumb{background:rgba(255,255,255,.08);border-radius:999px}
-
-.msg{display:flex;flex-direction:column;gap:6px;max-width:88%}
-.msg p{font-size:12.5px;line-height:1.5;letter-spacing:-.005em}
-.msg .msg-time{
-  font-size:9.5px;color:var(--ink-3);
-  letter-spacing:.06em;text-transform:uppercase;font-weight:500;
-}
-.msg-user{align-self:flex-end;align-items:flex-end}
-.msg-user p{
-  background:linear-gradient(135deg,rgba(255,94,26,.18),rgba(255,58,14,.12));
-  color:var(--ink-0);
-  padding:9px 12px;border-radius:14px 14px 4px 14px;
-  border:1px solid rgba(255,94,26,.28);
-}
-.msg-ai{align-self:flex-start}
-.msg-ai p{
-  background:rgba(255,255,255,.04);
-  color:var(--ink-1);
-  padding:9px 12px;border-radius:14px 14px 14px 4px;
-  border:1px solid var(--line);
-}
-.msg-chips{display:flex;gap:6px;flex-wrap:wrap}
-.msg-chip{
-  font-size:11.5px;font-weight:500;
-  padding:5px 10px;
-  background:var(--glass-bg);
-  border:1px solid var(--line);
-  border-radius:var(--r-pill);
-  color:var(--ink-2);
-  transition:all var(--dur-1);
-}
-.msg-chip:hover{color:var(--ink-0);border-color:var(--glass-border-strong)}
-.msg-chip--active{
-  background:linear-gradient(135deg,rgba(255,94,26,.22),rgba(255,133,64,.16));
-  border-color:rgba(255,94,26,.4);
-  color:var(--ink-0);
-}
-
-.tool-call{
-  display:flex;align-items:center;gap:10px;
-  padding:10px 12px;
-  background:rgba(255,170,85,.07);
-  border:1px solid rgba(255,170,85,.25);
-  border-radius:10px;
-  font-family:'JetBrains Mono',monospace;
-  font-size:11px;color:var(--amber);
-  letter-spacing:-.005em;
-}
-.tool-spin{
-  width:12px;height:12px;border-radius:50%;
-  border:1.5px solid rgba(255,170,85,.3);
-  border-top-color:var(--amber);
-  animation:spin 1s linear infinite;
-  flex-shrink:0;
-}
-.tool-label{flex:1;font-weight:500}
-.tool-bar{
-  width:60px;height:3px;border-radius:99px;
-  background:rgba(255,170,85,.15); overflow:hidden;
-  position:relative;
-}
-.tool-bar i{
-  position:absolute;left:0;top:0;height:100%;
-  width:42%;
-  background:var(--amber);
-  border-radius:99px;
-  box-shadow:0 0 8px rgba(255,170,85,.5);
-  animation:barProgress 2.4s ease-in-out infinite;
-}
-
-.msg-thumbs{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:2px}
-.msg-thumbs .thumb{
-  aspect-ratio:9/16;
-  border-radius:6px;
-  border:1px solid var(--line);
-  position:relative;overflow:hidden;
-}
-.thumb-1{background:linear-gradient(135deg,#1a0a06 0%,#7a2308 50%,#ff5e1a 100%)}
-.thumb-2{background:linear-gradient(160deg,#0a0604 0%,#3a1808 50%,#ffaa55 110%)}
-.thumb-3{background:linear-gradient(135deg,#2b0a04 0%,#ff3a0e 60%,#ffaa55 100%)}
-
-.chat-input{
-  margin:auto 10px 12px;
-  display:flex;align-items:center;gap:8px;
-  padding:8px 8px 8px 10px;
-  background:rgba(255,255,255,.04);
-  border:1px solid var(--glass-border);
-  border-radius:14px;
-  position:relative;
-}
-.chat-attach,.chat-send{
-  width:30px;height:30px;border-radius:9px;
-  display:grid;place-items:center;color:var(--ink-2);
-  background:transparent; flex-shrink:0;
-  transition:all var(--dur-1);
-}
-.chat-attach:hover{background:var(--glass-bg);color:var(--ink-0)}
-.chat-send{
-  background:var(--grad-cta); color:#fff;
-  box-shadow:0 6px 18px -4px rgba(255,94,26,.55);
-}
-.chat-placeholder{
-  flex:1; font-size:12.5px; color:var(--ink-3);
-  letter-spacing:-.005em;
-  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
-  transition:opacity .3s var(--ease);
-}
-.chat-caret{
-  width:1.5px;height:14px;background:var(--orange);
-  margin-right:-2px;
-  animation:caret 1s steps(1) infinite;
 }
 
 /* === COL 2 · FRAMES === */
@@ -1751,7 +1553,6 @@ p{color:var(--ink-2)}
   .nav{padding:8px 8px 8px 14px}
   .nav-cta{padding:8px 14px;font-size:13px;min-height:36px}
   .hero-content{margin-bottom:48px}
-  .cock-chat{min-height:auto}
   .cockpit-glow{filter:blur(60px);inset:-40px -5% -50px}
   .bg-orbs i{filter:blur(50px)}
   .features-grid{grid-template-columns:1fr}
@@ -1763,7 +1564,7 @@ p{color:var(--ink-2)}
   .char-grid{grid-template-columns:repeat(2,1fr)}
   .cta-block{padding:56px 24px}
   .foot-grid{flex-direction:column;text-align:center}
-  .glass,.glass-strong,.cock-chat,.nav,.idea-card{
+  .glass,.glass-strong,.nav,.idea-card{
     backdrop-filter:blur(10px) saturate(140%);
     -webkit-backdrop-filter:blur(10px) saturate(140%);
   }
@@ -1910,87 +1711,12 @@ p{color:var(--ink-2)}
       </div>
     </div>
 
-    <!-- COCKPIT MOCKUP -->
+    <!-- HERO SCREENSHOT -->
     <div class="cockpit-wrap reveal-scale" style="transition-delay:420ms">
       <div class="cockpit-glow" aria-hidden="true"></div>
       <div class="cockpit">
-        <!-- Window bar -->
-        <div class="cock-bar">
-          <div class="cock-dots" aria-hidden="true"><span></span><span></span><span></span></div>
-          <div class="cock-crumb">
-            <svg class="ico ico-12"><use href="#i-folder"/></svg>
-            <span>Studio</span>
-            <span class="cock-sep">›</span>
-            <span>Lumen Studio</span>
-            <span class="cock-sep">›</span>
-            <span class="cock-active">Otoño-2026</span>
-          </div>
-          <div class="cock-actions" aria-hidden="true">
-            <span class="cock-action"><svg class="ico ico-12"><use href="#i-bolt"/></svg></span>
-            <span class="cock-action"><svg class="ico ico-12"><use href="#i-plus"/></svg></span>
-          </div>
-        </div>
-
-        <!-- 3 columnas -->
-        <div class="cock-grid">
-
-          <!-- COL 1 · CHAT -->
-          <aside class="cock-chat">
-            <header class="chat-head">
-              <div class="chat-avatar">
-                <div class="ava"><svg viewBox="0 0 100 100" aria-hidden="true"><g fill="currentColor"><path d="M14 18 H58 V36 H42 V84 H26 V36 H14 Z"/><path d="M64 18 H86 L72 36 H50 Z"/></g></svg></div>
-                <span class="dot-status" aria-hidden="true"></span>
-              </div>
-              <div class="chat-meta">
-                <strong>Tuus</strong>
-                <span class="chat-sub">Agente creativo · activo</span>
-              </div>
-              <button class="chat-kebab" aria-label="Opciones del agente">···</button>
-            </header>
-            <div class="chat-stream">
-              <div class="msg msg-user">
-                <p>Necesito 3 videos para Black Friday, formato 9:16, vibra urgente pero premium.</p>
-                <span class="msg-time">11:24</span>
-              </div>
-              <div class="msg msg-ai">
-                <p>Perfecto. ¿Mantengo la paleta naranja/ámbar de tu última campaña o exploramos algo nuevo?</p>
-                <div class="msg-chips">
-                  <span class="msg-chip msg-chip--active">Mantener paleta</span>
-                  <span class="msg-chip">Explorar</span>
-                </div>
-                <span class="msg-time">11:24</span>
-              </div>
-              <div class="msg msg-user">
-                <p>Mantener.</p>
-                <span class="msg-time">11:25</span>
-              </div>
-              <div class="msg msg-ai">
-                <div class="tool-call">
-                  <span class="tool-spin" aria-hidden="true"></span>
-                  <span class="tool-label">Generando 3 conceptos · 12s</span>
-                  <span class="tool-bar"><i></i></span>
-                </div>
-              </div>
-              <div class="msg msg-ai">
-                <p>Lista la dirección creativa. Estos son los frames clave →</p>
-                <div class="msg-thumbs" aria-hidden="true">
-                  <span class="thumb thumb-1"></span>
-                  <span class="thumb thumb-2"></span>
-                  <span class="thumb thumb-3"></span>
-                </div>
-                <span class="msg-time">11:26</span>
-              </div>
-            </div>
-            <form class="chat-input" onsubmit="return false">
-              <button type="button" class="chat-attach" aria-label="Adjuntar"><svg class="ico ico-14"><use href="#i-plus"/></svg></button>
-              <span class="chat-placeholder" id="chatPlaceholder">Pídele algo a tu agente…</span>
-              <span class="chat-caret" aria-hidden="true"></span>
-              <button type="submit" class="chat-send" aria-label="Enviar mensaje"><svg class="ico ico-14"><use href="#i-arrow-right"/></svg></button>
-            </form>
-          </aside>
-
-        </div>
-
+        <img class="cockpit-shot" src="assets/dashboard.webp" width="1600" height="953"
+             alt="Dashboard de Tuus.AI — sesiones de video, galería y panel del proyecto con el agente creativo" />
         <span class="spark spark-1" aria-hidden="true"></span>
         <span class="spark spark-2" aria-hidden="true"></span>
         <span class="spark spark-3" aria-hidden="true"></span>
@@ -2678,31 +2404,6 @@ p{color:var(--ink-2)}
     }
   }
   window.addEventListener('scroll', onScroll, { passive: true });
-
-  /* ───────────────────────────────────────────────
-     CHAT PLACEHOLDER TYPING CYCLE
-     ─────────────────────────────────────────────── */
-  if (!rm.matches){
-    var phEl = document.getElementById('chatPlaceholder');
-    if (phEl){
-      var phrases = [
-        'Pídele algo a tu agente…',
-        'Cambiar el wardrobe del personaje',
-        'Generar variante en inglés',
-        'Crear hook para los primeros 3s',
-        'Adaptar a 1:1 manteniendo el ritmo'
-      ];
-      var idx = 0;
-      setInterval(function(){
-        phEl.style.opacity = '0';
-        setTimeout(function(){
-          idx = (idx + 1) % phrases.length;
-          phEl.textContent = phrases[idx];
-          phEl.style.opacity = '';
-        }, 280);
-      }, 4000);
-    }
-  }
 
   /* ───────────────────────────────────────────────
      WAITLIST MODAL + FORM SUBMISSION
