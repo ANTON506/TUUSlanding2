@@ -1244,10 +1244,16 @@ p{color:var(--ink-2)}
 .foot-bottom span{font-size:12px;color:var(--ink-3);letter-spacing:.02em}
 .foot-bottom .made{display:flex;align-items:center;gap:8px}
 .foot-bottom .made i{font-style:normal;color:var(--orange)}
-.foot-beta{margin-top:24px;font-size:12.5px;line-height:1.65;color:var(--ink-3);max-width:680px}
-.foot-beta a{color:var(--orange);text-decoration:none;border-bottom:1px solid rgba(255,94,26,.4)}
-.foot-beta a:hover{color:var(--ink-0)}
-.foot-beta__tag{display:inline-block;font-weight:700;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--orange);background:var(--glass-bg);border:1px solid var(--line);border-radius:var(--r-pill);padding:2px 9px;margin-right:9px;vertical-align:middle}
+/* Contact / beta section — a calmer glass card so it doesn't compete with the
+   bright CTA card directly above it. */
+.section--contact{padding-top:8px}
+.contact-block{position:relative;text-align:center;padding:60px 40px;border-radius:28px;background:var(--glass-bg);border:1px solid var(--line)}
+.contact-block h2{font-size:clamp(28px,3.4vw,42px);margin:16px auto 14px;letter-spacing:-.025em;line-height:1.08;max-width:20ch}
+.contact-block p{font-size:16px;color:var(--ink-2);max-width:600px;margin:0 auto 30px;line-height:1.6}
+.contact-block .btn{font-size:16px;padding:16px 28px;min-height:56px}
+.contact-note{font-size:13.5px;color:var(--ink-3);margin:18px auto 0}
+.contact-note strong{color:var(--ink-1);font-weight:600;-webkit-user-select:all;user-select:all}
+@media (max-width:640px){.contact-block{padding:44px 20px;border-radius:22px}}
 
 /* ═══════════════════════════════════════════════════════════
    21 · KEYFRAMES
@@ -1435,6 +1441,7 @@ p{color:var(--ink-2)}
     <a href="#como">Cómo funciona</a>
     <a href="#casos">Casos</a>
     <a href="#faq">FAQ</a>
+    <a href="#contacto">Contacto</a>
   </nav>
   <a href="https://app.tuus.app" class="btn btn-ghost btn-sm nav-cta">
     Ir a la app
@@ -1976,6 +1983,21 @@ p{color:var(--ink-2)}
   </div>
 </section>
 
+<section class="section section--contact" id="contacto">
+  <div class="container">
+    <div class="contact-block reveal-scale">
+      <span class="eyebrow"><span></span>En beta</span>
+      <h2>¿Encontraste un error?<br>Hablemos.</h2>
+      <p>Tuus AI está en fase beta. Si algo falla —o tienes algún problema con tu cuenta: créditos, pagos o acceso— escríbenos y te ayudamos. Cada reporte nos ayuda a mejorar el producto.</p>
+      <a href="mailto:antongoetzcanale@gmail.com" class="btn btn-primary btn-lg">
+        <svg class="ico ico-16"><use href="#i-chat"/></svg>
+        antongoetzcanale@gmail.com
+      </a>
+      <p class="contact-note">O copia el correo: <strong>antongoetzcanale@gmail.com</strong></p>
+    </div>
+  </div>
+</section>
+
 </main>
 
 <footer class="foot">
@@ -1992,15 +2014,9 @@ p{color:var(--ink-2)}
         <a href="#faq">FAQ</a>
         <a href="https://app.tuus.app/terminos">Términos</a>
         <a href="https://app.tuus.app/privacidad">Privacidad</a>
-        <a href="mailto:antongoetzcanale@gmail.com">Contacto</a>
+        <a href="#contacto">Contacto</a>
       </nav>
     </div>
-    <p class="foot-beta">
-      <span class="foot-beta__tag">Beta</span>
-      Tuus AI está en fase beta. Si encuentras algún error, repórtalo a
-      <a href="mailto:antongoetzcanale@gmail.com">antongoetzcanale@gmail.com</a>.
-      ¿Tienes algún problema con tu cuenta (créditos, pagos o acceso)? Escríbenos ahí también y te ayudamos.
-    </p>
     <div class="foot-bottom">
       <span>© 2026 Tuus.AI · Todos los derechos reservados.</span>
       <span class="made">Diseñado con <i>♥</i> para equipos creativos.</span>
