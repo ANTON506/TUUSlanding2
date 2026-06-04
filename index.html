@@ -517,6 +517,52 @@ p{color:var(--ink-2)}
   pointer-events:none;
 }
 
+/* === HERO · VIDEO TUTORIAL (lazy embed facade) === */
+.cockpit-wrap--video{margin-bottom:38px}
+.video-facade{
+  position:relative;display:block;width:100%;padding:0;border:0;
+  background:transparent;cursor:pointer;border-radius:12px;overflow:hidden;
+  -webkit-tap-highlight-color:transparent;
+}
+.video-facade .cockpit-shot{transition:transform 600ms var(--ease)}
+.video-facade:hover .cockpit-shot{transform:scale(1.02)}
+/* scrim so the play button stays legible over any frame */
+.video-facade::after{
+  content:"";position:absolute;inset:0;border-radius:12px;pointer-events:none;
+  background:radial-gradient(ellipse 44% 50% at 50% 50%,rgba(5,4,8,.55),rgba(5,4,8,0) 70%);
+}
+.video-play{
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  width:84px;height:84px;border-radius:var(--r-pill);
+  display:grid;place-items:center;z-index:2;
+  background:var(--grad-cta);
+  box-shadow:var(--glow-cta),0 0 0 8px rgba(255,94,26,.12);
+  transition:transform 300ms var(--ease);
+}
+.video-play svg{width:34px;height:34px;color:#fff;margin-left:5px;filter:drop-shadow(0 2px 6px rgba(0,0,0,.35))}
+.video-facade:hover .video-play{transform:translate(-50%,-50%) scale(1.08)}
+.video-facade:focus-visible{outline:2px solid var(--amber);outline-offset:3px}
+.video-badge{
+  position:absolute;left:16px;bottom:16px;z-index:2;
+  display:inline-flex;align-items:center;gap:7px;
+  padding:7px 13px;border-radius:var(--r-pill);
+  font-size:12.5px;font-weight:600;letter-spacing:-.01em;color:var(--ink-0);
+  background:rgba(10,8,14,.62);backdrop-filter:blur(10px);
+  border:1px solid var(--glass-border);
+}
+.video-badge-dot{width:7px;height:7px;border-radius:50%;background:var(--ember);box-shadow:0 0 10px 1px rgba(255,58,14,.8)}
+/* iframe that replaces the facade on click */
+.video-frame{display:block;width:100%;aspect-ratio:16/9;border:0;border-radius:12px;background:#000}
+@media(max-width:480px){
+  .video-play{width:64px;height:64px}
+  .video-play svg{width:26px;height:26px}
+  .video-badge{left:12px;bottom:12px;padding:6px 11px;font-size:11.5px}
+}
+@media(prefers-reduced-motion:reduce){
+  .video-facade:hover .cockpit-shot{transform:none}
+  .video-facade:hover .video-play{transform:translate(-50%,-50%)}
+}
+
 /* === COL 2 · FRAMES === */
 .cock-frames{
   background:var(--glass-bg-3);
@@ -1486,6 +1532,24 @@ p{color:var(--ink-2)}
       </div>
     </div>
 
+    <!-- HERO · VIDEO TUTORIAL (lazy embed · YouTube 1TxgV83WywI) -->
+    <div class="cockpit-wrap cockpit-wrap--video reveal-scale" style="transition-delay:380ms">
+      <div class="cockpit-glow" aria-hidden="true"></div>
+      <div class="cockpit">
+        <button class="video-facade" type="button"
+                data-embed="https://www.youtube-nocookie.com/embed/1TxgV83WywI?autoplay=1&amp;rel=0&amp;playsinline=1"
+                aria-label="Reproducir el tutorial: cómo usar Tuus.AI">
+          <img class="cockpit-shot" src="assets/tutorial-poster.webp" width="1920" height="1080"
+               loading="lazy" decoding="async"
+               alt="Tutorial en video — cómo usar Tuus.AI paso a paso" />
+          <span class="video-play" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><use href="#i-play"/></svg>
+          </span>
+          <span class="video-badge"><span class="video-badge-dot"></span>Tutorial completo · 14 min</span>
+        </button>
+      </div>
+    </div>
+
     <!-- HERO SCREENSHOT -->
     <div class="cockpit-wrap reveal-scale" style="transition-delay:420ms">
       <div class="cockpit-glow" aria-hidden="true"></div>
@@ -2110,6 +2174,23 @@ p{color:var(--ink-2)}
     }
   }
   window.addEventListener('scroll', onScroll, { passive: true });
+
+  /* ───────────────────────────────────────────────
+     HERO · LAZY VIDEO EMBED (click-to-load)
+     ─────────────────────────────────────────────── */
+  document.querySelectorAll('.video-facade').forEach(function(el){
+    el.addEventListener('click', function(){
+      var src = el.getAttribute('data-embed');
+      if (!src) return;               /* sin link aún: no hace nada */
+      var f = document.createElement('iframe');
+      f.src = src;
+      f.className = 'video-frame';
+      f.title = 'Tutorial Tuus.AI — cómo usar la app';
+      f.allow = 'autoplay; fullscreen; picture-in-picture; encrypted-media';
+      f.setAttribute('allowfullscreen', '');
+      el.replaceWith(f);
+    });
+  });
 
 })();
 </script>
