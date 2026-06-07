@@ -202,25 +202,6 @@ p{color:var(--ink-2)}
   background-size:240% 100%;
   animation:gradShift 14s ease-in-out infinite;
 }
-.eyebrow{
-  display:inline-flex;align-items:center;gap:8px;
-  padding:7px 14px 7px 12px;
-  font-size:11.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
-  color:var(--ink-1);
-  background:var(--glass-bg);
-  border:1px solid var(--glass-border);
-  border-radius:var(--r-pill);
-  backdrop-filter:blur(12px) saturate(140%);
-  -webkit-backdrop-filter:blur(12px) saturate(140%);
-}
-.eyebrow::before{
-  content:"";width:6px;height:6px;border-radius:50%;background:var(--orange);
-  box-shadow:0 0 12px var(--orange);
-  animation:pulse 2.4s ease-in-out infinite;
-}
-.eyebrow--amber::before{background:var(--amber);box-shadow:0 0 12px var(--amber)}
-.eyebrow--ember::before{background:var(--ember);box-shadow:0 0 12px var(--ember)}
-.eyebrow--success::before{background:var(--success);box-shadow:0 0 12px var(--success)}
 
 .muted{color:var(--ink-2)}
 .dim{color:var(--ink-3)}
@@ -319,23 +300,6 @@ p{color:var(--ink-2)}
 .btn-outline-grad:hover{transform:translateY(-1px);box-shadow:0 12px 36px -10px rgba(255,94,26,.4)}
 .btn .ico{width:16px;height:16px}
 
-.chip{
-  display:inline-flex;align-items:center;gap:8px;
-  padding:7px 14px;
-  font-size:12.5px;font-weight:500;letter-spacing:.01em;color:var(--ink-1);
-  background:var(--glass-bg);
-  border:1px solid var(--glass-border);
-  border-radius:var(--r-pill);
-  backdrop-filter:blur(10px);
-  -webkit-backdrop-filter:blur(10px);
-  transition:all var(--dur-1) var(--ease);
-}
-.chip:hover{background:var(--glass-bg-2);transform:translateY(-1px);border-color:var(--glass-border-strong)}
-.chip .dot{width:6px;height:6px;border-radius:50%;background:var(--orange)}
-.chip--orange .dot{background:var(--orange);box-shadow:0 0 8px var(--orange)}
-.chip--amber .dot{background:var(--amber);box-shadow:0 0 8px var(--amber)}
-.chip--ember .dot{background:var(--ember);box-shadow:0 0 8px var(--ember)}
-.chip--success .dot{background:var(--success);box-shadow:0 0 8px var(--success)}
 
 .badge{
   display:inline-flex;align-items:center;gap:6px;
@@ -466,7 +430,6 @@ p{color:var(--ink-2)}
   max-width:22ch;margin:0 auto 18px;
 }
 .hero-ctas{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:28px}
-.hero-badges{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;max-width:880px;margin:0 auto}
 
 /* Cockpit wrap */
 .cockpit-wrap{
@@ -577,7 +540,6 @@ p{color:var(--ink-2)}
   background:rgba(10,8,14,.62);backdrop-filter:blur(10px);
   border:1px solid var(--glass-border);
 }
-.video-badge-dot{width:7px;height:7px;border-radius:50%;background:var(--ember);box-shadow:0 0 10px 1px rgba(255,58,14,.8)}
 /* iframe that replaces the facade on click */
 .video-frame{display:block;width:100%;aspect-ratio:16/9;border:0;border-radius:12px;background:#000}
 @media(max-width:480px){
@@ -1421,8 +1383,6 @@ p{color:var(--ink-2)}
   .section{padding:64px 0}
   .container{padding:0 18px}
   .hero h1{font-size:clamp(34px,9vw,46px)}
-  .hero-badges{gap:6px}
-  .chip{padding:6px 10px;font-size:11.5px}
   .btn{padding:12px 18px;font-size:14px}
   .btn-lg{padding:14px 22px;font-size:15px;min-height:50px}
   .steps-grid{grid-template-columns:1fr}
@@ -1530,9 +1490,6 @@ p{color:var(--ink-2)}
 <section class="hero section--hero" id="producto">
   <div class="container">
     <div class="hero-content">
-      <span class="eyebrow reveal">
-        <span></span>Agente creativo · IA cinemática
-      </span>
       <h1 class="reveal" style="transition-delay:80ms">
         Tu agente creativo para
         <em class="gradient-text-2">producir anuncios con IA.</em>
@@ -1553,14 +1510,6 @@ p{color:var(--ink-2)}
           Ver cómo funciona
         </a>
       </div>
-      <div class="hero-badges reveal" style="transition-delay:320ms">
-        <span class="chip chip--success"><span class="dot"></span>Primer video gratis · sin tarjeta</span>
-        <span class="chip chip--orange"><span class="dot"></span>Sin prompts técnicos</span>
-        <span class="chip chip--amber"><span class="dot"></span>Memoria de marca</span>
-        <span class="chip chip--ember"><span class="dot"></span>Frames clave</span>
-        <span class="chip chip--orange"><span class="dot"></span>Control antes de generar</span>
-        <span class="chip chip--success"><span class="dot"></span>Para ads, reels y lanzamientos</span>
-      </div>
     </div>
 
     <!-- HERO · VIDEO TUTORIAL (lazy embed · YouTube 1TxgV83WywI) -->
@@ -1576,20 +1525,8 @@ p{color:var(--ink-2)}
           <span class="video-play" aria-hidden="true">
             <svg viewBox="0 0 24 24"><use href="#i-play"/></svg>
           </span>
-          <span class="video-badge"><span class="video-badge-dot"></span>Mira cómo funciona</span>
+          <span class="video-badge">Mira cómo funciona</span>
         </button>
-      </div>
-    </div>
-
-    <!-- HERO SCREENSHOT -->
-    <div class="cockpit-wrap reveal-scale" style="transition-delay:420ms">
-      <div class="cockpit-glow" aria-hidden="true"></div>
-      <div class="cockpit">
-        <img class="cockpit-shot" src="assets/dashboard.webp" width="1600" height="953"
-             alt="Dashboard de Tuus.AI — sesiones de video, galería y panel del proyecto con el agente creativo" />
-        <span class="spark spark-1" aria-hidden="true"></span>
-        <span class="spark spark-2" aria-hidden="true"></span>
-        <span class="spark spark-3" aria-hidden="true"></span>
       </div>
     </div>
   </div>
@@ -1601,7 +1538,6 @@ p{color:var(--ink-2)}
 <section class="section section--reel" id="ejemplos">
   <div class="container">
     <div class="section-head reveal">
-      <span class="eyebrow eyebrow--ember"><span></span>Hecho con Tuus.AI</span>
       <h2>Esto es lo que sale.<br>Ejemplos reales, sin editar.</h2>
       <p>Cada uno nació de una idea o una marca. El agente armó la dirección, los frames clave y el video final.</p>
     </div>
@@ -1648,7 +1584,6 @@ p{color:var(--ink-2)}
 <section class="section problem">
   <div class="container">
     <div class="section-head reveal">
-      <span class="eyebrow eyebrow--success"><span></span>El estado actual</span>
       <h2>Crear videos con IA sigue<br>siendo demasiado técnico.</h2>
       <p>Los generadores son potentes, pero todavía obligan a pensar como operador: prompts, assets, consistencia, estilos, formatos, revisiones y costos. Tuus.AI está diseñado para que pienses como marca, no como prompt engineer.</p>
     </div>
@@ -1679,13 +1614,12 @@ p{color:var(--ink-2)}
   <div class="container">
     <div class="solution-grid">
       <div class="reveal">
-        <span class="eyebrow"><span></span>La solución</span>
         <h2 style="margin-top:14px">Un solo agente creativo<br>para pasar de idea a <em class="gradient-text">video-ready.</em></h2>
         <p class="solution-lead">Tuus.AI no es otra herramienta más en tu stack. Es el director creativo que coordina contexto, marca, frames y formato — para que tú pienses en la pieza, no en el proceso.</p>
         <ul class="solution-list">
           <li><span class="li-icon"><svg class="ico ico-16"><use href="#i-brand"/></svg></span><div><strong>Entiende tu producto y tu marca</strong><span>Lee tu web, tu paleta, tu tono y los reusa en cada pieza nueva.</span></div></li>
           <li><span class="li-icon"><svg class="ico ico-16"><use href="#i-sparkles"/></svg></span><div><strong>Propone la dirección creativa</strong><span>Plantea ángulos, hooks y estilos visuales antes de tocar un solo frame.</span></div></li>
-          <li><span class="li-icon"><svg class="ico ico-16"><use href="#i-frame"/></svg></span><div><strong>Prepara frames clave para revisar</strong><span>Visualizás ritmo y estética antes de gastar un solo segundo de generación.</span></div></li>
+          <li><span class="li-icon"><svg class="ico ico-16"><use href="#i-frame"/></svg></span><div><strong>Prepara frames clave para revisar</strong><span>Visualizas ritmo y estética antes de gastar un solo segundo de generación.</span></div></li>
           <li><span class="li-icon"><svg class="ico ico-16"><use href="#i-folder"/></svg></span><div><strong>Organiza assets y decisiones</strong><span>Todo queda guardado, etiquetado y reutilizable para futuras campañas.</span></div></li>
           <li><span class="li-icon"><svg class="ico ico-16"><use href="#i-lock"/></svg></span><div><strong>Pide confirmación cuando importa</strong><span>Antes de pasos finales o costosos, espera tu aprobación. Tú mantienes el control.</span></div></li>
         </ul>
@@ -1709,7 +1643,6 @@ p{color:var(--ink-2)}
 <section class="section" id="como">
   <div class="container">
     <div class="section-head reveal">
-      <span class="eyebrow eyebrow--ember"><span></span>Cómo funciona</span>
       <h2>De idea a video, en 4 pasos.</h2>
       <p>Sin editar ni prompts técnicos. Le cuentas tu idea al Orquestador y arma el video contigo.</p>
     </div>
@@ -1747,7 +1680,6 @@ p{color:var(--ink-2)}
 <section class="section">
   <div class="container">
     <div class="section-head reveal">
-      <span class="eyebrow eyebrow--amber"><span></span>Capacidades</span>
       <h2>Diseñado para pensar como marca.</h2>
       <p>Cada capacidad está al servicio de una pieza creativa terminada — no de una demo aislada de IA.</p>
     </div>
@@ -1765,7 +1697,7 @@ p{color:var(--ink-2)}
       <article class="card feat-card reveal" style="transition-delay:120ms">
         <div class="icon-box"><svg class="ico"><use href="#i-folder"/></svg></div>
         <h3>Creación desde assets</h3>
-        <p>Subí producto, logo o referencia. El agente arma desde ahí.</p>
+        <p>Sube producto, logo o referencia. El agente arma desde ahí.</p>
       </article>
       <article class="card feat-card reveal" style="transition-delay:180ms">
         <div class="icon-box"><svg class="ico"><use href="#i-autopilot"/></svg></div>
@@ -1775,7 +1707,7 @@ p{color:var(--ink-2)}
       <article class="card feat-card reveal" style="transition-delay:240ms">
         <div class="icon-box"><svg class="ico"><use href="#i-frame"/></svg></div>
         <h3>Frames clave</h3>
-        <p>Revisá ritmo y estética antes de generar. Sin sorpresas caras.</p>
+        <p>Revisa ritmo y estética antes de generar. Sin sorpresas caras.</p>
       </article>
       <article class="card feat-card reveal" style="transition-delay:300ms">
         <div class="icon-box"><svg class="ico"><use href="#i-character"/></svg></div>
@@ -1800,7 +1732,7 @@ p{color:var(--ink-2)}
       <article class="card feat-card reveal" style="transition-delay:540ms">
         <div class="icon-box"><svg class="ico"><use href="#i-lock"/></svg></div>
         <h3>Modo automático, guiado o manual</h3>
-        <p>Elegí cuánta autonomía le das al agente. Sin perder el control en ningún momento.</p>
+        <p>Elige cuánta autonomía le das al agente. Sin perder el control en ningún momento.</p>
       </article>
     </div>
   </div>
@@ -1812,7 +1744,6 @@ p{color:var(--ink-2)}
 <section class="section">
   <div class="container">
     <div class="section-head reveal">
-      <span class="eyebrow eyebrow--ember"><span></span>Brand Autopilot</span>
       <h2>¿No tienes una idea?<br>Dale contexto a tu marca.</h2>
       <p>Conecta tu web, sube tu producto o agrega referencias. El agente propone ángulos, hooks, estilos visuales y campañas completas para elegir.</p>
     </div>
@@ -1826,7 +1757,6 @@ p{color:var(--ink-2)}
   <div class="container">
     <div class="char-block reveal-scale">
       <div>
-        <span class="eyebrow eyebrow--success"><span></span>Character consistency</span>
         <h2 style="margin-top:14px">Personajes consistentes<br>para campañas recurrentes.</h2>
         <p class="char-lead">Crea mascotas, avatares, influencers virtuales o personajes de marca y reutilízalos en nuevas piezas sin perder identidad.</p>
         <ul class="char-feats">
@@ -1888,7 +1818,6 @@ p{color:var(--ink-2)}
 <section class="section">
   <div class="container">
     <div class="section-head reveal">
-      <span class="eyebrow eyebrow--amber"><span></span>Control humano</span>
       <h2>Automático cuando conviene.<br>Confirmación cuando importa.</h2>
       <p>El agente puede avanzar solo en tareas creativas, pero los pasos finales o costosos pueden quedar bloqueados hasta tu aprobación.</p>
     </div>
@@ -1897,7 +1826,7 @@ p{color:var(--ink-2)}
         <div class="mode-toggle" aria-hidden="true"></div>
         <div class="icon-box" style="background:linear-gradient(135deg,rgba(62,255,122,.16),rgba(62,255,122,.06));border-color:rgba(62,255,122,.3)"><svg class="ico" style="color:var(--success)"><use href="#i-bolt"/></svg></div>
         <h3>Automático</h3>
-        <p>El agente decide y ejecuta hasta dejar la pieza lista. Ideal cuando confiás en su criterio creativo.</p>
+        <p>El agente decide y ejecuta hasta dejar la pieza lista. Ideal cuando confías en su criterio creativo.</p>
         <ul class="mode-feats">
           <li><svg class="ico"><use href="#i-check"/></svg>Avanza sin pausas</li>
           <li><svg class="ico"><use href="#i-check"/></svg>Notificación al terminar</li>
@@ -1936,7 +1865,6 @@ p{color:var(--ink-2)}
 <section class="section" id="casos">
   <div class="container">
     <div class="section-head reveal">
-      <span class="eyebrow"><span></span>Casos de uso</span>
       <h2>Para todo equipo que necesita video.</h2>
       <p>Marcas, agencias, e-commerce, founders y creadores. Un mismo agente, diez formatos distintos.</p>
     </div>
@@ -1959,7 +1887,6 @@ p{color:var(--ink-2)}
 <section class="section">
   <div class="container">
     <div class="section-head reveal">
-      <span class="eyebrow eyebrow--ember"><span></span>Comparación</span>
       <h2>No es un generador. Es un agente.</h2>
       <p>Las herramientas existentes te dejan solo frente al modelo. Tuus.AI arma la pieza creativa por ti.</p>
     </div>
@@ -2000,7 +1927,7 @@ p{color:var(--ink-2)}
         <h3>Arma la pieza creativa completa</h3>
         <p>Idea, marca, dirección, frames y video — un solo agente, un solo flujo.</p>
         <ul class="compare-list">
-          <li>Pensás como marca, no como prompt</li>
+          <li>Piensas como marca, no como prompt</li>
           <li>Memoria persistente y reutilización</li>
           <li>Control humano cuando lo quieres</li>
         </ul>
@@ -2016,7 +1943,6 @@ p{color:var(--ink-2)}
 <section class="section" id="faq">
   <div class="container container--narrow">
     <div class="section-head reveal">
-      <span class="eyebrow eyebrow--success"><span></span>FAQ</span>
       <h2>Preguntas frecuentes.</h2>
     </div>
     <div class="faq-list" data-faq-group="main">
@@ -2026,7 +1952,7 @@ p{color:var(--ink-2)}
       </details>
       <details class="faq-item reveal" style="transition-delay:40ms">
         <summary class="faq-q">¿Puedo usar mis propios productos e imágenes?<span class="faq-chev"><svg class="ico ico-14"><use href="#i-chevron-down"/></svg></span></summary>
-        <div class="faq-a"><div class="faq-a-inner">Sí. Subí tu producto, tu logo, fotos de catálogo o referencias visuales. El agente los integra en la propuesta creativa desde el primer paso.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">Sí. Sube tu producto, tu logo, fotos de catálogo o referencias visuales. El agente los integra en la propuesta creativa desde el primer paso.</div></div>
       </details>
       <details class="faq-item reveal" style="transition-delay:80ms">
         <summary class="faq-q">¿Mantiene mi estilo de marca?<span class="faq-chev"><svg class="ico ico-14"><use href="#i-chevron-down"/></svg></span></summary>
@@ -2038,7 +1964,7 @@ p{color:var(--ink-2)}
       </details>
       <details class="faq-item reveal" style="transition-delay:160ms">
         <summary class="faq-q">¿Hay control de costos?<span class="faq-chev"><svg class="ico ico-14"><use href="#i-chevron-down"/></svg></span></summary>
-        <div class="faq-a"><div class="faq-a-inner">Total. Los pasos costosos pueden quedar bloqueados hasta tu confirmación explícita. Elegís el modo (automático, guiado o manual) según el riesgo de la pieza.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">Total. Los pasos costosos pueden quedar bloqueados hasta tu confirmación explícita. Eliges el modo (automático, guiado o manual) según el riesgo de la pieza.</div></div>
       </details>
       <details class="faq-item reveal" style="transition-delay:200ms">
         <summary class="faq-q">¿Sirve para agencias?<span class="faq-chev"><svg class="ico ico-14"><use href="#i-chevron-down"/></svg></span></summary>
@@ -2062,7 +1988,6 @@ p{color:var(--ink-2)}
 <section class="section section--cta" id="cta">
   <div class="container">
     <div class="cta-block reveal-scale">
-      <span class="eyebrow"><span></span>Tu primer video gratis</span>
       <h2>Tu primer video está<br>a un par de clics.</h2>
       <p>Cuéntale tu idea al agente y deja que arme la dirección, los frames y el video final. Tu primer video corre gratis, sin instalar nada.</p>
       <a href="https://app.tuus.app/static/signup.html" class="btn btn-primary btn-lg">
@@ -2076,7 +2001,6 @@ p{color:var(--ink-2)}
 <section class="section section--contact" id="contacto">
   <div class="container">
     <div class="contact-block reveal-scale">
-      <span class="eyebrow"><span></span>En beta</span>
       <h2>¿Encontraste un error?<br>Hablemos.</h2>
       <p>Tuus AI está en fase beta. Si algo falla —o tienes algún problema con tu cuenta: créditos, pagos o acceso— escríbenos y te ayudamos. Cada reporte nos ayuda a mejorar el producto.</p>
       <a href="mailto:antongoetzcanale@gmail.com" class="btn btn-primary btn-lg">
