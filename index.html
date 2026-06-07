@@ -457,6 +457,14 @@ p{color:var(--ink-2)}
   color:var(--ink-2);
   max-width:660px;margin:0 auto 36px;line-height:1.6;
 }
+.hero-free{
+  font-size:clamp(22px,3vw,36px);
+  font-weight:700;
+  letter-spacing:-.02em;
+  line-height:1.18;
+  color:var(--ink-0);
+  max-width:22ch;margin:0 auto 18px;
+}
 .hero-ctas{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:28px}
 .hero-badges{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;max-width:880px;margin:0 auto}
 
@@ -982,7 +990,7 @@ p{color:var(--ink-2)}
   z-index:0;
 }
 .steps-grid{
-  display:grid;grid-template-columns:repeat(5,1fr);gap:14px;
+  display:grid;grid-template-columns:repeat(4,1fr);gap:14px;
   position:relative;z-index:1;
 }
 .step{
@@ -1382,7 +1390,7 @@ p{color:var(--ink-2)}
   .char-block{grid-template-columns:1fr;gap:36px;padding:36px 28px}
   .features-grid{grid-template-columns:repeat(2,1fr)}
   .feat-card.is-hero{grid-column:span 2}
-  .steps-grid{grid-template-columns:repeat(3,1fr)}
+  .steps-grid{grid-template-columns:repeat(2,1fr)}
   .steps-line{display:none}
   .cases-grid{grid-template-columns:repeat(3,1fr)}
   .compare-grid{grid-template-columns:repeat(2,1fr)}
@@ -1503,7 +1511,7 @@ p{color:var(--ink-2)}
   </a>
   <nav class="nav-links" aria-label="Navegación principal">
     <a href="#producto">Producto</a>
-    <a href="#como">Cómo funciona</a>
+    <a href="#video">Cómo funciona</a>
     <a href="#casos">Casos</a>
     <a href="#faq">FAQ</a>
     <a href="#contacto">Contacto</a>
@@ -1529,6 +1537,9 @@ p{color:var(--ink-2)}
         Tu agente creativo para
         <em class="gradient-text-2">producir anuncios con IA.</em>
       </h1>
+      <p class="hero-free reveal" style="transition-delay:120ms">
+        Tu primer video lo haces <em class="gradient-text-2">gratis</em> — solo describe tu idea.
+      </p>
       <p class="hero-sub reveal" style="transition-delay:160ms">
         Describe una idea, sube tu producto o conecta tu marca. Tuus.AI entiende el contexto, propone la dirección creativa, arma frames clave y deja tu video listo para generar.
       </p>
@@ -1537,7 +1548,7 @@ p{color:var(--ink-2)}
           Crea tu primer video gratis
           <svg class="ico ico-16"><use href="#i-arrow-right"/></svg>
         </a>
-        <a href="#como" class="btn btn-ghost btn-lg">
+        <a href="#video" class="btn btn-ghost btn-lg">
           <svg class="ico ico-16"><use href="#i-play"/></svg>
           Ver cómo funciona
         </a>
@@ -1553,7 +1564,7 @@ p{color:var(--ink-2)}
     </div>
 
     <!-- HERO · VIDEO TUTORIAL (lazy embed · YouTube 1TxgV83WywI) -->
-    <div class="cockpit-wrap cockpit-wrap--video reveal-scale" style="transition-delay:380ms">
+    <div id="video" class="cockpit-wrap cockpit-wrap--video reveal-scale" style="transition-delay:380ms;scroll-margin-top:90px">
       <div class="cockpit-glow" aria-hidden="true"></div>
       <div class="cockpit">
         <button class="video-facade" type="button"
@@ -1699,36 +1710,31 @@ p{color:var(--ink-2)}
   <div class="container">
     <div class="section-head reveal">
       <span class="eyebrow eyebrow--ember"><span></span>Cómo funciona</span>
-      <h2>De idea a video en cinco pasos.</h2>
-      <p>Sin prompts técnicos. Sin coordinar herramientas. Solo conversación creativa con un agente que entiende tu marca.</p>
+      <h2>De idea a video, en 4 pasos.</h2>
+      <p>Sin editar ni prompts técnicos. Le cuentas tu idea al Orquestador y arma el video contigo.</p>
     </div>
     <div class="steps">
       <div class="steps-line" aria-hidden="true"></div>
       <div class="steps-grid">
         <article class="step reveal" style="transition-delay:0ms">
           <div class="step-num">01</div>
-          <h4>Describe la idea</h4>
-          <p>Cuéntale qué quieres comunicar, a quién y para qué momento. Sube materiales si los tienes.</p>
+          <h4>Escribe tu idea</h4>
+          <p>Abre "Nuevo proyecto" y cuéntale tu idea al Orquestador, como se la dirías a una persona. Si quieres, sube tu producto o logo.</p>
         </article>
         <article class="step reveal" style="transition-delay:80ms">
           <div class="step-num">02</div>
-          <h4>La IA entiende tu marca</h4>
-          <p>Lee tu producto, tu tono, tu paleta y el objetivo. Construye contexto antes de proponer nada.</p>
+          <h4>Elige formato y duración</h4>
+          <p>Reel/TikTok (9:16) o YouTube (16:9), de 5 a 30 segundos. Eso es casi todo lo que decides.</p>
         </article>
         <article class="step reveal" style="transition-delay:160ms">
           <div class="step-num">03</div>
-          <h4>Recibís dirección creativa</h4>
-          <p>Ángulos, hooks, frames clave y mood. Todo presentado para decidir, no para descifrar.</p>
+          <h4>El Orquestador arma los frames</h4>
+          <p>Propone la dirección y te muestra los frames del video. Tú revisas y pides cambios si quieres.</p>
         </article>
         <article class="step reveal" style="transition-delay:240ms">
           <div class="step-num">04</div>
-          <h4>Revisás o ajustás</h4>
-          <p>Cambias un detalle, pides variantes o apruebas. Modo automático, guiado o manual — tú decides.</p>
-        </article>
-        <article class="step reveal" style="transition-delay:320ms">
-          <div class="step-num">05</div>
-          <h4>Video listo para generar</h4>
-          <p>El agente deja todo armado para producir y reutilizar. Tu campaña, lista para salir.</p>
+          <h4>Confirma y descarga tu video</h4>
+          <p>Un clic en confirmar y en minutos tienes el video listo para publicar.</p>
         </article>
       </div>
     </div>
